@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated rest_tester -->
+      <package
+            uri="http://www.example.org/rest_tester"
+            class="rest_tester.rest_tester.Rest_testerPackage"
+            genModel="model/rest_tester.genmodel"/>
+   </extension>
+
+</plugin>

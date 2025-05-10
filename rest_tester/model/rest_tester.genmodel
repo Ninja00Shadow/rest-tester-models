@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/rest_tester/src-gen" creationIcons="false" editDirectory="/rest_tester.edit/src-gen"
+    editorDirectory="/rest_tester.editor/src-gen" modelPluginID="rest_tester" modelName="Rest_tester"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>rest_tester.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Rest_tester" basePackage="rest_tester" disposableProviderFactory="true"
+      ecorePackage="rest_tester.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rest_tester.ecore#//HttpMethod">
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//HttpMethod/GET"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//HttpMethod/POST"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//HttpMethod/PUT"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//HttpMethod/DELETE"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//HttpMethod/HEAD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rest_tester.ecore#//ComparisonOp">
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/EQ"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/NEQ"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/LT"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/GT"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/LTE"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//ComparisonOp/GTE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="rest_tester.ecore#//LogicalOp">
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//LogicalOp/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="rest_tester.ecore#//LogicalOp/OR"/>
+    </genEnums>
+    <genClasses ecoreClass="rest_tester.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Program/envDeclarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Program/testCases"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//EnvDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//EnvDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//EnvDeclaration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//TestCase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//TestCase/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//TestCase/options"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//TestCase/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//Option">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Option/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Option/value"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rest_tester.ecore#//Statement"/>
+    <genClasses ecoreClass="rest_tester.ecore#//Request">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Request/method"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Request/endpoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Request/config"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//VarDeclaration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//VarDeclaration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//VarDeclaration/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//VarReassignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//VarReassignment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//VarReassignment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//Assertion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Assertion/expr"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rest_tester.ecore#//BoolExpr"/>
+    <genClasses ecoreClass="rest_tester.ecore#//BinaryLogicalExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//BinaryLogicalExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//BinaryLogicalExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//BinaryLogicalExpr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//NotExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//NotExpr/expr"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//ComparisonExpr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//ComparisonExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//ComparisonExpr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//ComparisonExpr/right"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="rest_tester.ecore#//Value"/>
+    <genClasses ecoreClass="rest_tester.ecore#//StringValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//StringValue/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//NumberValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//NumberValue/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//BooleanValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//BooleanValue/literal"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//ObjectValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//ObjectValue/entries"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//Pair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Pair/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Pair/value"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//ArrayValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//ArrayValue/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//PathValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//PathValue/root"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//PathValue/selectors"/>
+    </genClasses>
+    <genClasses ecoreClass="rest_tester.ecore#//Selector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Selector/propertyName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Selector/index"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

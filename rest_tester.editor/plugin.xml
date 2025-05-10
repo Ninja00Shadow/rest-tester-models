@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated rest_tester -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="rest_tester.rest_tester.presentation.Rest_testerModelWizardID"
+            name="%_UI_Rest_testerModelWizard_label"
+            class="rest_tester.rest_tester.presentation.Rest_testerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Rest_testerModelFile.gif">
+         <description>%_UI_Rest_testerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated rest_tester -->
+      <editor
+            id="rest_tester.rest_tester.presentation.Rest_testerEditorID"
+            name="%_UI_Rest_testerEditor_label"
+            icon="icons/full/obj16/Rest_testerModelFile.gif"
+            extensions="rest_tester"
+            class="rest_tester.rest_tester.presentation.Rest_testerEditor"
+            contributorClass="rest_tester.rest_tester.presentation.Rest_testerActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
