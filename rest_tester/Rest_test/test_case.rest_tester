@@ -56,5 +56,6 @@
         <right xsi:type="rest_tester:StringValue" literal=""/>
       </expr>
     </statements>
+    <statements xsi:type="rest_tester:VarDeclaration"/>
   </testCases>
 </rest_tester:Program>
