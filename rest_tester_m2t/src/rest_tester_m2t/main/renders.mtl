@@ -1,0 +1,88 @@
+[comment encoding = UTF-8 /]
+[module renders('http://www.example.org/rest_tester')]
+
+[template public render(v : Value)][/template]
+[template public render(b : BoolExpr)][/template]
+[template public render(s : Statement)][/template]
+
+[template public renderOptions(opt : Option)]
+	[for (o : Option | Sequence{opt}) separator(', ')]
+		[o.key/] : [o.value.render()/]
+	[/for]
+[/template]
+
+[template public render(req : Request) overrides]
+	[req.method.toString()/] "[req.endpoint/]" {
+		[if (req.config <> null)]
+			[req.config.render()/] 
+		[/if]
+	}
+[/template]
+
+[template public render(vd : VarDeclaration) overrides]
+	var [vd.name/] = [vd.value.render()/]
+[/template]
+
+[template public render(vr : VarReassignment) overrides]
+	[vr.name/] = [vr.value.render()/]
+[/template]
+
+[template public render(a : Assertion) overrides]
+	expect [a.expr.render()/]
+[/template]
+
+[template public render(be : BinaryLogicalExpr)]
+	[be.left.render()/] [renderLogOp(be.op)/] [be.right.render()/]
+[/template]
+
+[template public render(ne : NotExpr)]
+	! [ne.expr.render()/]
+[/template]
+
+[template public render(ce : ComparisonExpr)]
+	[ce.left.render()/] [renderCompOp(ce.op)/] [ce.right.render()/]
+[/template]
+
+[comment] === Value === [/comment]
+[template public render(s : StringValue) overrides] "[s.literal/]" [/template]
+
+[template public render(n : NumberValue) overrides] [n.literal/] [/template]
+
+[template public render(b : BooleanValue) overrides] [if b.literal]true[else]false[/if] [/template]
+
+[template public render(o : ObjectValue) overrides]
+{
+[for (p : Pair | o.entries) separator(',\n')]
+	"[p.key/]" : [p.value.render()/]
+[/for]
+}
+[/template]
+
+[template public render(a : ArrayValue) overrides]
+[ '[' /]
+[for (e : Value | a.elements) separator(', ')]
+	[e.render()/]
+[/for]
+[ ']' /]
+[/template]
+
+[template public render(v : VarAccess) overrides]
+	[v.name/][for (sel : Selector | v.selectors)][sel.render()/][/for]
+[/template]
+
+[template public render(sel : Selector)]
+	['['/][if sel.propertyName <> null]'[sel.propertyName/]'[else][sel.index/][/if][']' /]
+[/template]
+
+[query public renderCompOp(op : ComparisonOp) : String =
+	if self = ComparisonOp::EQ  then '==' 
+	else if self = ComparisonOp::NEQ then '!=' 
+	else if self = ComparisonOp::LT  then '<' 
+	else if self = ComparisonOp::GT  then '>' 
+	else if self = ComparisonOp::LTE then '<=' 
+	else '>=' endif endif endif endif endif
+/]
+
+[query public renderLogOp(op : LogicalOp) : String =
+	if self = LogicalOp::AND then '&&' else '||' endif
+/]

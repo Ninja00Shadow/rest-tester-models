@@ -1,0 +1,25 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/rest_tester')]
+
+[import rest_tester_m2t::main::renders /] 
+
+[comment @main/]
+[template public genRestTesterModel2RestTesterCode(aProgram : Program)]
+[file ('program.rest', false, 'UTF-8')]
+
+[comment]  ----- ENV ----- [/comment]
+[for (env : EnvDeclaration | aProgram.envDeclarations)]
+[env.name/] = [env.value.render()/]
+[/for]
+
+[comment]  ----- TEST CASES ----- [/comment]
+[for (tc : TestCase | aProgram.testCases)]
+test "[tc.name/]" [if (tc.options->notEmpty())]options { [tc.options.renderOptions()/] }[/if] {
+	[for (st : Statement | tc.statements)]
+		[st.render()/]
+	[/for]
+}
+[/for]
+
+[/file]
+[/template]
