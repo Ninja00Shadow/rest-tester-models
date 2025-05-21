@@ -1,0 +1,27 @@
+ENV PASSWORD = "securePass123"
+
+test "Vars" options { timeout: 3000.0 } {
+	var string = "hello"
+	var number = 42.0
+	var double = 3.14
+	var boolean = false
+	var array = [1.0, 2.0, 3.0]
+	var object = {
+		"key": "value",
+		"number": 123.0,
+		"ob": {
+			"ttt": "ttt"
+		}
+	}
+	string = "${string} world"
+	var second = array[1]
+	var obob = object["ob"]["ttt"]
+	expect string == "hello world"
+	expect number != 42.0
+	expect double > 3.13
+	expect boolean == true
+	expect array[0] == 1.0
+	expect object["key"] == "value"
+	expect object["ob"]["tt"] == "ttt"
+	expect ((number == 42.0) && (double != 3.14)) || ((boolean == true) && (string == "hello world"))
+}

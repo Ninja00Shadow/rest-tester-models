@@ -4,6 +4,7 @@ package rest_tester.rest_tester.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -31,6 +33,7 @@ import rest_tester.rest_tester.TestCase;
  * <ul>
  *   <li>{@link rest_tester.rest_tester.impl.ProgramImpl#getEnvDeclarations <em>Env Declarations</em>}</li>
  *   <li>{@link rest_tester.rest_tester.impl.ProgramImpl#getTestCases <em>Test Cases</em>}</li>
+ *   <li>{@link rest_tester.rest_tester.impl.ProgramImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -55,6 +58,26 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @ordered
 	 */
 	protected EList<TestCase> testCases;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,6 +132,29 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 	 * @generated
 	 */
 	@Override
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, Rest_testerPackage.PROGRAM__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 		case Rest_testerPackage.PROGRAM__ENV_DECLARATIONS:
@@ -131,6 +177,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			return getEnvDeclarations();
 		case Rest_testerPackage.PROGRAM__TEST_CASES:
 			return getTestCases();
+		case Rest_testerPackage.PROGRAM__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -152,6 +200,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			getTestCases().clear();
 			getTestCases().addAll((Collection<? extends TestCase>) newValue);
 			return;
+		case Rest_testerPackage.PROGRAM__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -170,6 +221,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 		case Rest_testerPackage.PROGRAM__TEST_CASES:
 			getTestCases().clear();
 			return;
+		case Rest_testerPackage.PROGRAM__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,8 +240,27 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 			return envDeclarations != null && !envDeclarations.isEmpty();
 		case Rest_testerPackage.PROGRAM__TEST_CASES:
 			return testCases != null && !testCases.isEmpty();
+		case Rest_testerPackage.PROGRAM__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //ProgramImpl

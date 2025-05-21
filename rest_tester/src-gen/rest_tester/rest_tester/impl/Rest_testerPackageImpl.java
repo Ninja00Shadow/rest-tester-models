@@ -320,6 +320,16 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProgram_Name() {
+		return (EAttribute) programEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEnvDeclaration() {
 		return envDeclarationEClass;
 	}
@@ -917,6 +927,7 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 		programEClass = createEClass(PROGRAM);
 		createEReference(programEClass, PROGRAM__ENV_DECLARATIONS);
 		createEReference(programEClass, PROGRAM__TEST_CASES);
+		createEAttribute(programEClass, PROGRAM__NAME);
 
 		envDeclarationEClass = createEClass(ENV_DECLARATION);
 		createEAttribute(envDeclarationEClass, ENV_DECLARATION__NAME);
@@ -1050,6 +1061,8 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 		initEReference(getProgram_TestCases(), this.getTestCase(), null, "testCases", null, 0, -1, Program.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProgram_Name(), ecorePackage.getEString(), "name", null, 1, 1, Program.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(envDeclarationEClass, EnvDeclaration.class, "EnvDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

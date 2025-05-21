@@ -5,7 +5,7 @@
 
 [template public genRestTesterModel2RestTesterCode(aProgram : Program)]
 [comment @main/]
-[file ('program.rest', false, 'UTF-8')]
+[file (aProgram.name + '.rest', false, 'UTF-8')]
 [comment]  ----- ENV ----- [/comment]
 [for (env : EnvDeclaration | aProgram.envDeclarations)]
 ENV [env.name/] = [env.value.render()/]

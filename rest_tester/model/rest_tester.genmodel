@@ -32,6 +32,7 @@
     <genClasses ecoreClass="rest_tester.ecore#//Program">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Program/envDeclarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//Program/testCases"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Program/name"/>
     </genClasses>
     <genClasses ecoreClass="rest_tester.ecore#//EnvDeclaration">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//EnvDeclaration/name"/>

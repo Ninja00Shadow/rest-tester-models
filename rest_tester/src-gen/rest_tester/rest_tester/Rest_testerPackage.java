@@ -86,13 +86,22 @@ public interface Rest_testerPackage extends EPackage {
 	int PROGRAM__TEST_CASES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROGRAM__NAME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Program</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAM_FEATURE_COUNT = 2;
+	int PROGRAM_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Program</em>' class.
@@ -1051,6 +1060,17 @@ public interface Rest_testerPackage extends EPackage {
 	EReference getProgram_TestCases();
 
 	/**
+	 * Returns the meta object for the attribute '{@link rest_tester.rest_tester.Program#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see rest_tester.rest_tester.Program#getName()
+	 * @see #getProgram()
+	 * @generated
+	 */
+	EAttribute getProgram_Name();
+
+	/**
 	 * Returns the meta object for class '{@link rest_tester.rest_tester.EnvDeclaration <em>Env Declaration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1701,6 +1721,14 @@ public interface Rest_testerPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROGRAM__TEST_CASES = eINSTANCE.getProgram_TestCases();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROGRAM__NAME = eINSTANCE.getProgram_Name();
 
 		/**
 		 * The meta object literal for the '{@link rest_tester.rest_tester.impl.EnvDeclarationImpl <em>Env Declaration</em>}' class.

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest_tester:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rest_tester="http://www.example.org/rest_tester" name="test_case2">
+  <envDeclarations name="PASSWORD">
+    <value xsi:type="rest_tester:StringValue" literal="securePass123"/>
+  </envDeclarations>
+  <testCases name="Vars">
+    <options key="timeout">
+      <value xsi:type="rest_tester:NumberValue" literal="3000.0"/>
+    </options>
+    <statements xsi:type="rest_tester:VarDeclaration" name="string">
+      <value xsi:type="rest_tester:StringValue" literal="hello"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="number">
+      <value xsi:type="rest_tester:NumberValue" literal="42.0"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="double">
+      <value xsi:type="rest_tester:NumberValue" literal="3.14"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="boolean">
+      <value xsi:type="rest_tester:BooleanValue" literal="false"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="array">
+      <value xsi:type="rest_tester:ArrayValue">
+        <elements xsi:type="rest_tester:NumberValue" literal="1.0"/>
+        <elements xsi:type="rest_tester:NumberValue" literal="2.0"/>
+        <elements xsi:type="rest_tester:NumberValue" literal="3.0"/>
+      </value>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="object">
+      <value xsi:type="rest_tester:ObjectValue">
+        <entries key="key">
+          <value xsi:type="rest_tester:StringValue" literal="value"/>
+        </entries>
+        <entries key="number">
+          <value xsi:type="rest_tester:NumberValue" literal="123.0"/>
+        </entries>
+        <entries key="ob">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="ttt">
+              <value xsi:type="rest_tester:StringValue" literal="ttt"/>
+            </entries>
+          </value>
+        </entries>
+      </value>
+    </statements>
+    <statements xsi:type="rest_tester:VarReassignment" name="string">
+      <value xsi:type="rest_tester:StringValue" literal="${string} world"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="second">
+      <value xsi:type="rest_tester:VarAccess" name="array">
+        <selectors index="1"/>
+      </value>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="obob">
+      <value xsi:type="rest_tester:VarAccess" name="object">
+        <selectors propertyName="ob"/>
+        <selectors propertyName="ttt"/>
+      </value>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="string"/>
+        <right xsi:type="rest_tester:StringValue" literal="hello world"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr" op="NEQ">
+        <left xsi:type="rest_tester:VarAccess" name="number"/>
+        <right xsi:type="rest_tester:NumberValue" literal="42.0"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr" op="GT">
+        <left xsi:type="rest_tester:VarAccess" name="double"/>
+        <right xsi:type="rest_tester:NumberValue" literal="3.13"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="boolean"/>
+        <right xsi:type="rest_tester:BooleanValue"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="array">
+          <selectors/>
+        </left>
+        <right xsi:type="rest_tester:NumberValue" literal="1.0"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="object">
+          <selectors propertyName="key"/>
+        </left>
+        <right xsi:type="rest_tester:StringValue" literal="value"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="object">
+          <selectors propertyName="ob"/>
+          <selectors propertyName="tt"/>
+        </left>
+        <right xsi:type="rest_tester:StringValue" literal="ttt"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:BinaryLogicalExpr" op="OR">
+        <left xsi:type="rest_tester:BinaryLogicalExpr">
+          <left xsi:type="rest_tester:ComparisonExpr">
+            <left xsi:type="rest_tester:VarAccess" name="number"/>
+            <right xsi:type="rest_tester:NumberValue" literal="42.0"/>
+          </left>
+          <right xsi:type="rest_tester:ComparisonExpr" op="NEQ">
+            <left xsi:type="rest_tester:VarAccess" name="double"/>
+            <right xsi:type="rest_tester:NumberValue" literal="3.14"/>
+          </right>
+        </left>
+        <right xsi:type="rest_tester:BinaryLogicalExpr">
+          <left xsi:type="rest_tester:ComparisonExpr">
+            <left xsi:type="rest_tester:VarAccess" name="boolean"/>
+            <right xsi:type="rest_tester:BooleanValue"/>
+          </left>
+          <right xsi:type="rest_tester:ComparisonExpr">
+            <left xsi:type="rest_tester:VarAccess" name="string"/>
+            <right xsi:type="rest_tester:StringValue" literal="hello world"/>
+          </right>
+        </right>
+      </expr>
+    </statements>
+  </testCases>
+</rest_tester:Program>

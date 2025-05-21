@@ -25,6 +25,7 @@
         eType="#//EnvDeclaration" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="testCases" upperBound="-1"
         eType="#//TestCase" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EnvDeclaration">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

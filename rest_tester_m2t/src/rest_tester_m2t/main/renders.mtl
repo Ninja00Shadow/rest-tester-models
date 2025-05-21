@@ -28,7 +28,7 @@ expect [a.expr.render()/]
 [/template]
 
 [template public render(be : BinaryLogicalExpr)]
-[be.left.render()/] [renderLogOp(be.op)/] [be.right.render()/]
+([be.left.render()/]) [renderLogOp(be.op)/] ([be.right.render()/])
 [/template]
 
 [template public render(ne : NotExpr)]
@@ -55,11 +55,7 @@ expect [a.expr.render()/]
 [/template]
 
 [template public render(a : ArrayValue) overrides]
-[ '[' /]
-[for (e : Value | a.elements) separator(', ')]
-	[e.render()/]
-[/for]
-[ ']' /]
+[ '[' /][for (e : Value | a.elements) separator(', ')][e.render()/][/for][ ']' /]
 [/template]
 
 [template public render(v : VarAccess) overrides]

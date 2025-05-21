@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rest_tester:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rest_tester="http://www.example.org/rest_tester">
+<rest_tester:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rest_tester="http://www.example.org/rest_tester" name="test_case">
   <envDeclarations name="PASSWORD">
     <value xsi:type="rest_tester:StringValue" literal="pass"/>
   </envDeclarations>
