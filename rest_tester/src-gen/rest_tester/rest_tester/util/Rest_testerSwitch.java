@@ -230,11 +230,11 @@ public class Rest_testerSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case Rest_testerPackage.PATH_VALUE: {
-			PathValue pathValue = (PathValue) theEObject;
-			T result = casePathValue(pathValue);
+		case Rest_testerPackage.VAR_ACCESS: {
+			VarAccess varAccess = (VarAccess) theEObject;
+			T result = caseVarAccess(varAccess);
 			if (result == null)
-				result = caseValue(pathValue);
+				result = caseValue(varAccess);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -552,17 +552,17 @@ public class Rest_testerSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Path Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Var Access</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Path Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Var Access</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T casePathValue(PathValue object) {
+	public T caseVarAccess(VarAccess object) {
 		return null;
 	}
 

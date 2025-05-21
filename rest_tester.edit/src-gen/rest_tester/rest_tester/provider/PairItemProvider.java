@@ -189,7 +189,7 @@ public class PairItemProvider extends ItemProviderAdapter implements IEditingDom
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.PAIR__VALUE,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 	/**

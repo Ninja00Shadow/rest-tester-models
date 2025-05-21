@@ -186,22 +186,7 @@ public class RequestItemProvider extends StatementItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
-				Rest_testerFactory.eINSTANCE.createStringValue()));
-
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
-				Rest_testerFactory.eINSTANCE.createNumberValue()));
-
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
-				Rest_testerFactory.eINSTANCE.createBooleanValue()));
-
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
 				Rest_testerFactory.eINSTANCE.createObjectValue()));
-
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
-				Rest_testerFactory.eINSTANCE.createArrayValue()));
-
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.REQUEST__CONFIG,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
 	}
 
 }

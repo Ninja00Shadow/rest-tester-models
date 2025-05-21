@@ -25,7 +25,6 @@ import rest_tester.rest_tester.NumberValue;
 import rest_tester.rest_tester.ObjectValue;
 import rest_tester.rest_tester.Option;
 import rest_tester.rest_tester.Pair;
-import rest_tester.rest_tester.PathValue;
 import rest_tester.rest_tester.Program;
 import rest_tester.rest_tester.Request;
 import rest_tester.rest_tester.Rest_testerFactory;
@@ -35,6 +34,7 @@ import rest_tester.rest_tester.Statement;
 import rest_tester.rest_tester.StringValue;
 import rest_tester.rest_tester.TestCase;
 import rest_tester.rest_tester.Value;
+import rest_tester.rest_tester.VarAccess;
 import rest_tester.rest_tester.VarDeclaration;
 import rest_tester.rest_tester.VarReassignment;
 
@@ -190,7 +190,7 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass pathValueEClass = null;
+	private EClass varAccessEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -800,8 +800,8 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 	 * @generated
 	 */
 	@Override
-	public EClass getPathValue() {
-		return pathValueEClass;
+	public EClass getVarAccess() {
+		return varAccessEClass;
 	}
 
 	/**
@@ -810,8 +810,8 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 	 * @generated
 	 */
 	@Override
-	public EAttribute getPathValue_Root() {
-		return (EAttribute) pathValueEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVarAccess_Name() {
+		return (EAttribute) varAccessEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -820,8 +820,8 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 	 * @generated
 	 */
 	@Override
-	public EReference getPathValue_Selectors() {
-		return (EReference) pathValueEClass.getEStructuralFeatures().get(1);
+	public EReference getVarAccess_Selectors() {
+		return (EReference) varAccessEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -985,9 +985,9 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 		arrayValueEClass = createEClass(ARRAY_VALUE);
 		createEReference(arrayValueEClass, ARRAY_VALUE__ELEMENTS);
 
-		pathValueEClass = createEClass(PATH_VALUE);
-		createEAttribute(pathValueEClass, PATH_VALUE__ROOT);
-		createEReference(pathValueEClass, PATH_VALUE__SELECTORS);
+		varAccessEClass = createEClass(VAR_ACCESS);
+		createEAttribute(varAccessEClass, VAR_ACCESS__NAME);
+		createEReference(varAccessEClass, VAR_ACCESS__SELECTORS);
 
 		selectorEClass = createEClass(SELECTOR);
 		createEAttribute(selectorEClass, SELECTOR__PROPERTY_NAME);
@@ -1040,7 +1040,7 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 		booleanValueEClass.getESuperTypes().add(this.getValue());
 		objectValueEClass.getESuperTypes().add(this.getValue());
 		arrayValueEClass.getESuperTypes().add(this.getValue());
-		pathValueEClass.getESuperTypes().add(this.getValue());
+		varAccessEClass.getESuperTypes().add(this.getValue());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1053,15 +1053,15 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 
 		initEClass(envDeclarationEClass, EnvDeclaration.class, "EnvDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnvDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnvDeclaration.class,
+		initEAttribute(getEnvDeclaration_Name(), ecorePackage.getEString(), "name", null, 1, 1, EnvDeclaration.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnvDeclaration_Value(), this.getValue(), null, "value", null, 0, 1, EnvDeclaration.class,
+		initEReference(getEnvDeclaration_Value(), this.getValue(), null, "value", null, 1, 1, EnvDeclaration.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(testCaseEClass, TestCase.class, "TestCase", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTestCase_Name(), ecorePackage.getEString(), "name", null, 0, 1, TestCase.class, !IS_TRANSIENT,
+		initEAttribute(getTestCase_Name(), ecorePackage.getEString(), "name", null, 1, 1, TestCase.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTestCase_Options(), this.getOption(), null, "options", null, 0, -1, TestCase.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -1071,9 +1071,9 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(optionEClass, Option.class, "Option", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOption_Key(), ecorePackage.getEString(), "key", null, 0, 1, Option.class, !IS_TRANSIENT,
+		initEAttribute(getOption_Key(), ecorePackage.getEString(), "key", null, 1, 1, Option.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOption_Value(), this.getValue(), null, "value", null, 0, 1, Option.class, !IS_TRANSIENT,
+		initEReference(getOption_Value(), this.getValue(), null, "value", null, 1, 1, Option.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
@@ -1081,33 +1081,33 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(requestEClass, Request.class, "Request", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRequest_Method(), this.getHttpMethod(), "method", null, 0, 1, Request.class, !IS_TRANSIENT,
+		initEAttribute(getRequest_Method(), this.getHttpMethod(), "method", null, 1, 1, Request.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRequest_Endpoint(), ecorePackage.getEString(), "endpoint", null, 0, 1, Request.class,
+		initEAttribute(getRequest_Endpoint(), ecorePackage.getEString(), "endpoint", null, 1, 1, Request.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRequest_Config(), this.getValue(), null, "config", null, 0, 1, Request.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-				IS_ORDERED);
+		initEReference(getRequest_Config(), this.getObjectValue(), null, "config", null, 0, 1, Request.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(varDeclarationEClass, VarDeclaration.class, "VarDeclaration", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVarDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarDeclaration.class,
+		initEAttribute(getVarDeclaration_Name(), ecorePackage.getEString(), "name", null, 1, 1, VarDeclaration.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVarDeclaration_Value(), this.getValue(), null, "value", null, 0, 1, VarDeclaration.class,
+		initEReference(getVarDeclaration_Value(), this.getValue(), null, "value", null, 1, 1, VarDeclaration.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(varReassignmentEClass, VarReassignment.class, "VarReassignment", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getVarReassignment_Name(), ecorePackage.getEString(), "name", null, 0, 1, VarReassignment.class,
+		initEAttribute(getVarReassignment_Name(), ecorePackage.getEString(), "name", null, 1, 1, VarReassignment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getVarReassignment_Value(), this.getValue(), null, "value", null, 0, 1, VarReassignment.class,
+		initEReference(getVarReassignment_Value(), this.getValue(), null, "value", null, 1, 1, VarReassignment.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(assertionEClass, Assertion.class, "Assertion", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAssertion_Expr(), this.getBoolExpr(), null, "expr", null, 0, 1, Assertion.class,
+		initEReference(getAssertion_Expr(), this.getBoolExpr(), null, "expr", null, 1, 1, Assertion.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1115,28 +1115,28 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 
 		initEClass(binaryLogicalExprEClass, BinaryLogicalExpr.class, "BinaryLogicalExpr", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBinaryLogicalExpr_Left(), this.getBoolExpr(), null, "left", null, 0, 1,
+		initEReference(getBinaryLogicalExpr_Left(), this.getBoolExpr(), null, "left", null, 1, 1,
 				BinaryLogicalExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBinaryLogicalExpr_Op(), this.getLogicalOp(), "op", null, 0, 1, BinaryLogicalExpr.class,
+		initEAttribute(getBinaryLogicalExpr_Op(), this.getLogicalOp(), "op", null, 1, 1, BinaryLogicalExpr.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryLogicalExpr_Right(), this.getBoolExpr(), null, "right", null, 0, 1,
+		initEReference(getBinaryLogicalExpr_Right(), this.getBoolExpr(), null, "right", null, 1, 1,
 				BinaryLogicalExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notExprEClass, NotExpr.class, "NotExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNotExpr_Expr(), this.getBoolExpr(), null, "expr", null, 0, 1, NotExpr.class, !IS_TRANSIENT,
+		initEReference(getNotExpr_Expr(), this.getBoolExpr(), null, "expr", null, 1, 1, NotExpr.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(comparisonExprEClass, ComparisonExpr.class, "ComparisonExpr", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComparisonExpr_Left(), this.getValue(), null, "left", null, 0, 1, ComparisonExpr.class,
+		initEReference(getComparisonExpr_Left(), this.getValue(), null, "left", null, 1, 1, ComparisonExpr.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getComparisonExpr_Op(), this.getComparisonOp(), "op", null, 0, 1, ComparisonExpr.class,
+		initEAttribute(getComparisonExpr_Op(), this.getComparisonOp(), "op", null, 1, 1, ComparisonExpr.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparisonExpr_Right(), this.getValue(), null, "right", null, 0, 1, ComparisonExpr.class,
+		initEReference(getComparisonExpr_Right(), this.getValue(), null, "right", null, 1, 1, ComparisonExpr.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1149,13 +1149,14 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 
 		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNumberValue_Literal(), ecorePackage.getEDouble(), "literal", null, 0, 1, NumberValue.class,
+		initEAttribute(getNumberValue_Literal(), ecorePackage.getEDouble(), "literal", null, 1, 1, NumberValue.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanValueEClass, BooleanValue.class, "BooleanValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanValue_Literal(), ecorePackage.getEBoolean(), "literal", null, 0, 1, BooleanValue.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBooleanValue_Literal(), ecorePackage.getEBoolean(), "literal", "true", 1, 1,
+				BooleanValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectValueEClass, ObjectValue.class, "ObjectValue", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1164,9 +1165,9 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pairEClass, Pair.class, "Pair", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPair_Key(), ecorePackage.getEString(), "key", null, 0, 1, Pair.class, !IS_TRANSIENT,
+		initEAttribute(getPair_Key(), ecorePackage.getEString(), "key", null, 1, 1, Pair.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPair_Value(), this.getValue(), null, "value", null, 0, 1, Pair.class, !IS_TRANSIENT,
+		initEReference(getPair_Value(), this.getValue(), null, "value", null, 1, 1, Pair.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
@@ -1176,11 +1177,11 @@ public class Rest_testerPackageImpl extends EPackageImpl implements Rest_testerP
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(pathValueEClass, PathValue.class, "PathValue", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(varAccessEClass, VarAccess.class, "VarAccess", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPathValue_Root(), ecorePackage.getEString(), "root", null, 0, 1, PathValue.class,
+		initEAttribute(getVarAccess_Name(), ecorePackage.getEString(), "name", null, 1, 1, VarAccess.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPathValue_Selectors(), this.getSelector(), null, "selectors", null, 0, -1, PathValue.class,
+		initEReference(getVarAccess_Selectors(), this.getSelector(), null, "selectors", null, 0, -1, VarAccess.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

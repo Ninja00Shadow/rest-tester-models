@@ -97,9 +97,9 @@
     <genClasses ecoreClass="rest_tester.ecore#//ArrayValue">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//ArrayValue/elements"/>
     </genClasses>
-    <genClasses ecoreClass="rest_tester.ecore#//PathValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//PathValue/root"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//PathValue/selectors"/>
+    <genClasses ecoreClass="rest_tester.ecore#//VarAccess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//VarAccess/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference rest_tester.ecore#//VarAccess/selectors"/>
     </genClasses>
     <genClasses ecoreClass="rest_tester.ecore#//Selector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute rest_tester.ecore#//Selector/propertyName"/>

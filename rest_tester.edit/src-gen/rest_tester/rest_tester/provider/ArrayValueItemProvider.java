@@ -157,7 +157,7 @@ public class ArrayValueItemProvider extends ValueItemProvider {
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.ARRAY_VALUE__ELEMENTS,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 }

@@ -26,7 +26,7 @@ public interface NumberValue extends Value {
 	 * @return the value of the '<em>Literal</em>' attribute.
 	 * @see #setLiteral(double)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getNumberValue_Literal()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	double getLiteral();

@@ -28,7 +28,7 @@ public interface ComparisonExpr extends BoolExpr {
 	 * @return the value of the '<em>Left</em>' containment reference.
 	 * @see #setLeft(Value)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getComparisonExpr_Left()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Value getLeft();
@@ -52,7 +52,7 @@ public interface ComparisonExpr extends BoolExpr {
 	 * @see rest_tester.rest_tester.ComparisonOp
 	 * @see #setOp(ComparisonOp)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getComparisonExpr_Op()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	ComparisonOp getOp();
@@ -75,7 +75,7 @@ public interface ComparisonExpr extends BoolExpr {
 	 * @return the value of the '<em>Right</em>' containment reference.
 	 * @see #setRight(Value)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getComparisonExpr_Right()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Value getRight();

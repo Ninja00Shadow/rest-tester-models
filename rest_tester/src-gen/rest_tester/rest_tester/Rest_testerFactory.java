@@ -175,13 +175,13 @@ public interface Rest_testerFactory extends EFactory {
 	ArrayValue createArrayValue();
 
 	/**
-	 * Returns a new object of class '<em>Path Value</em>'.
+	 * Returns a new object of class '<em>Var Access</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Path Value</em>'.
+	 * @return a new object of class '<em>Var Access</em>'.
 	 * @generated
 	 */
-	PathValue createPathValue();
+	VarAccess createVarAccess();
 
 	/**
 	 * Returns a new object of class '<em>Selector</em>'.

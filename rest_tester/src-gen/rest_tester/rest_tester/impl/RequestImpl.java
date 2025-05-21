@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import rest_tester.rest_tester.HttpMethod;
+import rest_tester.rest_tester.ObjectValue;
 import rest_tester.rest_tester.Request;
 import rest_tester.rest_tester.Rest_testerPackage;
-import rest_tester.rest_tester.Value;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +79,7 @@ public class RequestImpl extends StatementImpl implements Request {
 	 * @generated
 	 * @ordered
 	 */
-	protected Value config;
+	protected ObjectValue config;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -154,7 +154,7 @@ public class RequestImpl extends StatementImpl implements Request {
 	 * @generated
 	 */
 	@Override
-	public Value getConfig() {
+	public ObjectValue getConfig() {
 		return config;
 	}
 
@@ -163,8 +163,8 @@ public class RequestImpl extends StatementImpl implements Request {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetConfig(Value newConfig, NotificationChain msgs) {
-		Value oldConfig = config;
+	public NotificationChain basicSetConfig(ObjectValue newConfig, NotificationChain msgs) {
+		ObjectValue oldConfig = config;
 		config = newConfig;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
@@ -183,7 +183,7 @@ public class RequestImpl extends StatementImpl implements Request {
 	 * @generated
 	 */
 	@Override
-	public void setConfig(Value newConfig) {
+	public void setConfig(ObjectValue newConfig) {
 		if (newConfig != config) {
 			NotificationChain msgs = null;
 			if (config != null)
@@ -247,7 +247,7 @@ public class RequestImpl extends StatementImpl implements Request {
 			setEndpoint((String) newValue);
 			return;
 		case Rest_testerPackage.REQUEST__CONFIG:
-			setConfig((Value) newValue);
+			setConfig((ObjectValue) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -268,7 +268,7 @@ public class RequestImpl extends StatementImpl implements Request {
 			setEndpoint(ENDPOINT_EDEFAULT);
 			return;
 		case Rest_testerPackage.REQUEST__CONFIG:
-			setConfig((Value) null);
+			setConfig((ObjectValue) null);
 			return;
 		}
 		super.eUnset(featureID);

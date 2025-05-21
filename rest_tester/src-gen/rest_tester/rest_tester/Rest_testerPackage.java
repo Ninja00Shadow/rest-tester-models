@@ -897,23 +897,23 @@ public interface Rest_testerPackage extends EPackage {
 	int ARRAY_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link rest_tester.rest_tester.impl.PathValueImpl <em>Path Value</em>}' class.
+	 * The meta object id for the '{@link rest_tester.rest_tester.impl.VarAccessImpl <em>Var Access</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see rest_tester.rest_tester.impl.PathValueImpl
-	 * @see rest_tester.rest_tester.impl.Rest_testerPackageImpl#getPathValue()
+	 * @see rest_tester.rest_tester.impl.VarAccessImpl
+	 * @see rest_tester.rest_tester.impl.Rest_testerPackageImpl#getVarAccess()
 	 * @generated
 	 */
-	int PATH_VALUE = 20;
+	int VAR_ACCESS = 20;
 
 	/**
-	 * The feature id for the '<em><b>Root</b></em>' attribute.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VALUE__ROOT = VALUE_FEATURE_COUNT + 0;
+	int VAR_ACCESS__NAME = VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Selectors</b></em>' containment reference list.
@@ -922,25 +922,25 @@ public interface Rest_testerPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VALUE__SELECTORS = VALUE_FEATURE_COUNT + 1;
+	int VAR_ACCESS__SELECTORS = VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Path Value</em>' class.
+	 * The number of structural features of the '<em>Var Access</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 2;
+	int VAR_ACCESS_FEATURE_COUNT = VALUE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Path Value</em>' class.
+	 * The number of operations of the '<em>Var Access</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PATH_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int VAR_ACCESS_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link rest_tester.rest_tester.impl.SelectorImpl <em>Selector</em>}' class.
@@ -1560,36 +1560,36 @@ public interface Rest_testerPackage extends EPackage {
 	EReference getArrayValue_Elements();
 
 	/**
-	 * Returns the meta object for class '{@link rest_tester.rest_tester.PathValue <em>Path Value</em>}'.
+	 * Returns the meta object for class '{@link rest_tester.rest_tester.VarAccess <em>Var Access</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Path Value</em>'.
-	 * @see rest_tester.rest_tester.PathValue
+	 * @return the meta object for class '<em>Var Access</em>'.
+	 * @see rest_tester.rest_tester.VarAccess
 	 * @generated
 	 */
-	EClass getPathValue();
+	EClass getVarAccess();
 
 	/**
-	 * Returns the meta object for the attribute '{@link rest_tester.rest_tester.PathValue#getRoot <em>Root</em>}'.
+	 * Returns the meta object for the attribute '{@link rest_tester.rest_tester.VarAccess#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Root</em>'.
-	 * @see rest_tester.rest_tester.PathValue#getRoot()
-	 * @see #getPathValue()
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see rest_tester.rest_tester.VarAccess#getName()
+	 * @see #getVarAccess()
 	 * @generated
 	 */
-	EAttribute getPathValue_Root();
+	EAttribute getVarAccess_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link rest_tester.rest_tester.PathValue#getSelectors <em>Selectors</em>}'.
+	 * Returns the meta object for the containment reference list '{@link rest_tester.rest_tester.VarAccess#getSelectors <em>Selectors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Selectors</em>'.
-	 * @see rest_tester.rest_tester.PathValue#getSelectors()
-	 * @see #getPathValue()
+	 * @see rest_tester.rest_tester.VarAccess#getSelectors()
+	 * @see #getVarAccess()
 	 * @generated
 	 */
-	EReference getPathValue_Selectors();
+	EReference getVarAccess_Selectors();
 
 	/**
 	 * Returns the meta object for class '{@link rest_tester.rest_tester.Selector <em>Selector</em>}'.
@@ -2125,22 +2125,22 @@ public interface Rest_testerPackage extends EPackage {
 		EReference ARRAY_VALUE__ELEMENTS = eINSTANCE.getArrayValue_Elements();
 
 		/**
-		 * The meta object literal for the '{@link rest_tester.rest_tester.impl.PathValueImpl <em>Path Value</em>}' class.
+		 * The meta object literal for the '{@link rest_tester.rest_tester.impl.VarAccessImpl <em>Var Access</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see rest_tester.rest_tester.impl.PathValueImpl
-		 * @see rest_tester.rest_tester.impl.Rest_testerPackageImpl#getPathValue()
+		 * @see rest_tester.rest_tester.impl.VarAccessImpl
+		 * @see rest_tester.rest_tester.impl.Rest_testerPackageImpl#getVarAccess()
 		 * @generated
 		 */
-		EClass PATH_VALUE = eINSTANCE.getPathValue();
+		EClass VAR_ACCESS = eINSTANCE.getVarAccess();
 
 		/**
-		 * The meta object literal for the '<em><b>Root</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PATH_VALUE__ROOT = eINSTANCE.getPathValue_Root();
+		EAttribute VAR_ACCESS__NAME = eINSTANCE.getVarAccess_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Selectors</b></em>' containment reference list feature.
@@ -2148,7 +2148,7 @@ public interface Rest_testerPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PATH_VALUE__SELECTORS = eINSTANCE.getPathValue_Selectors();
+		EReference VAR_ACCESS__SELECTORS = eINSTANCE.getVarAccess_Selectors();
 
 		/**
 		 * The meta object literal for the '{@link rest_tester.rest_tester.impl.SelectorImpl <em>Selector</em>}' class.

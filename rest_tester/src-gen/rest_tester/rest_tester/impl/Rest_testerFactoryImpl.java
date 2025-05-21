@@ -91,8 +91,8 @@ public class Rest_testerFactoryImpl extends EFactoryImpl implements Rest_testerF
 			return createPair();
 		case Rest_testerPackage.ARRAY_VALUE:
 			return createArrayValue();
-		case Rest_testerPackage.PATH_VALUE:
-			return createPathValue();
+		case Rest_testerPackage.VAR_ACCESS:
+			return createVarAccess();
 		case Rest_testerPackage.SELECTOR:
 			return createSelector();
 		default:
@@ -331,9 +331,9 @@ public class Rest_testerFactoryImpl extends EFactoryImpl implements Rest_testerF
 	 * @generated
 	 */
 	@Override
-	public PathValue createPathValue() {
-		PathValueImpl pathValue = new PathValueImpl();
-		return pathValue;
+	public VarAccess createVarAccess() {
+		VarAccessImpl varAccess = new VarAccessImpl();
+		return varAccess;
 	}
 
 	/**

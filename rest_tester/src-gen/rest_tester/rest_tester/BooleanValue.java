@@ -21,12 +21,13 @@ package rest_tester.rest_tester;
 public interface BooleanValue extends Value {
 	/**
 	 * Returns the value of the '<em><b>Literal</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literal</em>' attribute.
 	 * @see #setLiteral(boolean)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getBooleanValue_Literal()
-	 * @model
+	 * @model default="true" required="true"
 	 * @generated
 	 */
 	boolean isLiteral();

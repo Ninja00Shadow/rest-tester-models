@@ -28,7 +28,7 @@ public interface BinaryLogicalExpr extends BoolExpr {
 	 * @return the value of the '<em>Left</em>' containment reference.
 	 * @see #setLeft(BoolExpr)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getBinaryLogicalExpr_Left()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	BoolExpr getLeft();
@@ -52,7 +52,7 @@ public interface BinaryLogicalExpr extends BoolExpr {
 	 * @see rest_tester.rest_tester.LogicalOp
 	 * @see #setOp(LogicalOp)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getBinaryLogicalExpr_Op()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	LogicalOp getOp();
@@ -75,7 +75,7 @@ public interface BinaryLogicalExpr extends BoolExpr {
 	 * @return the value of the '<em>Right</em>' containment reference.
 	 * @see #setRight(BoolExpr)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getBinaryLogicalExpr_Right()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	BoolExpr getRight();

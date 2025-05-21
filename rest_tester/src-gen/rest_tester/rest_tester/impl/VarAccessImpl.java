@@ -17,44 +17,44 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import rest_tester.rest_tester.PathValue;
 import rest_tester.rest_tester.Rest_testerPackage;
 import rest_tester.rest_tester.Selector;
+import rest_tester.rest_tester.VarAccess;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Path Value</b></em>'.
+ * An implementation of the model object '<em><b>Var Access</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link rest_tester.rest_tester.impl.PathValueImpl#getRoot <em>Root</em>}</li>
- *   <li>{@link rest_tester.rest_tester.impl.PathValueImpl#getSelectors <em>Selectors</em>}</li>
+ *   <li>{@link rest_tester.rest_tester.impl.VarAccessImpl#getName <em>Name</em>}</li>
+ *   <li>{@link rest_tester.rest_tester.impl.VarAccessImpl#getSelectors <em>Selectors</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PathValueImpl extends ValueImpl implements PathValue {
+public class VarAccessImpl extends ValueImpl implements VarAccess {
 	/**
-	 * The default value of the '{@link #getRoot() <em>Root</em>}' attribute.
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoot()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ROOT_EDEFAULT = null;
+	protected static final String NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getRoot() <em>Root</em>}' attribute.
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRoot()
+	 * @see #getName()
 	 * @generated
 	 * @ordered
 	 */
-	protected String root = ROOT_EDEFAULT;
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSelectors() <em>Selectors</em>}' containment reference list.
@@ -71,7 +71,7 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PathValueImpl() {
+	protected VarAccessImpl() {
 		super();
 	}
 
@@ -82,7 +82,7 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return Rest_testerPackage.Literals.PATH_VALUE;
+		return Rest_testerPackage.Literals.VAR_ACCESS;
 	}
 
 	/**
@@ -91,8 +91,8 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	 * @generated
 	 */
 	@Override
-	public String getRoot() {
-		return root;
+	public String getName() {
+		return name;
 	}
 
 	/**
@@ -101,11 +101,11 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	 * @generated
 	 */
 	@Override
-	public void setRoot(String newRoot) {
-		String oldRoot = root;
-		root = newRoot;
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, Rest_testerPackage.PATH_VALUE__ROOT, oldRoot, root));
+			eNotify(new ENotificationImpl(this, Notification.SET, Rest_testerPackage.VAR_ACCESS__NAME, oldName, name));
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	public EList<Selector> getSelectors() {
 		if (selectors == null) {
 			selectors = new EObjectContainmentEList<Selector>(Selector.class, this,
-					Rest_testerPackage.PATH_VALUE__SELECTORS);
+					Rest_testerPackage.VAR_ACCESS__SELECTORS);
 		}
 		return selectors;
 	}
@@ -130,7 +130,7 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			return ((InternalEList<?>) getSelectors()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -144,9 +144,9 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case Rest_testerPackage.PATH_VALUE__ROOT:
-			return getRoot();
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__NAME:
+			return getName();
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			return getSelectors();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -161,10 +161,10 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case Rest_testerPackage.PATH_VALUE__ROOT:
-			setRoot((String) newValue);
+		case Rest_testerPackage.VAR_ACCESS__NAME:
+			setName((String) newValue);
 			return;
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			getSelectors().clear();
 			getSelectors().addAll((Collection<? extends Selector>) newValue);
 			return;
@@ -180,10 +180,10 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case Rest_testerPackage.PATH_VALUE__ROOT:
-			setRoot(ROOT_EDEFAULT);
+		case Rest_testerPackage.VAR_ACCESS__NAME:
+			setName(NAME_EDEFAULT);
 			return;
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			getSelectors().clear();
 			return;
 		}
@@ -198,9 +198,9 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case Rest_testerPackage.PATH_VALUE__ROOT:
-			return ROOT_EDEFAULT == null ? root != null : !ROOT_EDEFAULT.equals(root);
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			return selectors != null && !selectors.isEmpty();
 		}
 		return super.eIsSet(featureID);
@@ -217,10 +217,10 @@ public class PathValueImpl extends ValueImpl implements PathValue {
 			return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (root: ");
-		result.append(root);
+		result.append(" (name: ");
+		result.append(name);
 		result.append(')');
 		return result.toString();
 	}
 
-} //PathValueImpl
+} //VarAccessImpl

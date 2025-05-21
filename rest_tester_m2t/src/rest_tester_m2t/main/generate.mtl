@@ -3,10 +3,9 @@
 
 [import rest_tester_m2t::main::renders /] 
 
-[comment @main/]
 [template public genRestTesterModel2RestTesterCode(aProgram : Program)]
+[comment @main/]
 [file ('program.rest', false, 'UTF-8')]
-
 [comment]  ----- ENV ----- [/comment]
 [for (env : EnvDeclaration | aProgram.envDeclarations)]
 [env.name/] = [env.value.render()/]

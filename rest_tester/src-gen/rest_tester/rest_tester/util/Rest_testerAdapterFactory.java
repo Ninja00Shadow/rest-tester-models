@@ -167,8 +167,8 @@ public class Rest_testerAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter casePathValue(PathValue object) {
-			return createPathValueAdapter();
+		public Adapter caseVarAccess(VarAccess object) {
+			return createVarAccessAdapter();
 		}
 
 		@Override
@@ -476,16 +476,16 @@ public class Rest_testerAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link rest_tester.rest_tester.PathValue <em>Path Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link rest_tester.rest_tester.VarAccess <em>Var Access</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see rest_tester.rest_tester.PathValue
+	 * @see rest_tester.rest_tester.VarAccess
 	 * @generated
 	 */
-	public Adapter createPathValueAdapter() {
+	public Adapter createVarAccessAdapter() {
 		return null;
 	}
 

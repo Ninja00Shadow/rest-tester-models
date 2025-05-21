@@ -185,7 +185,7 @@ public class ComparisonExprItemProvider extends BoolExprItemProvider {
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.COMPARISON_EXPR__LEFT,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.COMPARISON_EXPR__RIGHT,
 				Rest_testerFactory.eINSTANCE.createStringValue()));
@@ -203,7 +203,7 @@ public class ComparisonExprItemProvider extends BoolExprItemProvider {
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.COMPARISON_EXPR__RIGHT,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 	/**

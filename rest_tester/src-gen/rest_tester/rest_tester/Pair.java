@@ -29,7 +29,7 @@ public interface Pair extends EObject {
 	 * @return the value of the '<em>Key</em>' attribute.
 	 * @see #setKey(String)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getPair_Key()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getKey();
@@ -51,7 +51,7 @@ public interface Pair extends EObject {
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Value)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getPair_Value()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Value getValue();

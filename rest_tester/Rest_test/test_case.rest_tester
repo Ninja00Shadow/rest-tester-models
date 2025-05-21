@@ -14,7 +14,7 @@
       <value xsi:type="rest_tester:StringValue" literal="admin"/>
     </statements>
     <statements xsi:type="rest_tester:Request" method="POST" endpoint="/api/login">
-      <config xsi:type="rest_tester:ObjectValue">
+      <config>
         <entries key="headers">
           <value xsi:type="rest_tester:ObjectValue">
             <entries key="Content-Type">
@@ -36,26 +36,25 @@
     </statements>
     <statements xsi:type="rest_tester:Assertion">
       <expr xsi:type="rest_tester:ComparisonExpr">
-        <left xsi:type="rest_tester:PathValue" root="status"/>
+        <left xsi:type="rest_tester:VarAccess" name="status"/>
         <right xsi:type="rest_tester:NumberValue" literal="200.0"/>
       </expr>
     </statements>
     <statements xsi:type="rest_tester:Assertion">
       <expr xsi:type="rest_tester:ComparisonExpr">
-        <left xsi:type="rest_tester:PathValue" root="body">
+        <left xsi:type="rest_tester:VarAccess" name="body">
           <selectors propertyName="success"/>
         </left>
-        <right xsi:type="rest_tester:BooleanValue" literal="true"/>
+        <right xsi:type="rest_tester:BooleanValue"/>
       </expr>
     </statements>
     <statements xsi:type="rest_tester:Assertion">
       <expr xsi:type="rest_tester:ComparisonExpr" op="NEQ">
-        <left xsi:type="rest_tester:PathValue" root="body">
+        <left xsi:type="rest_tester:VarAccess" name="body">
           <selectors propertyName="token"/>
         </left>
         <right xsi:type="rest_tester:StringValue" literal=""/>
       </expr>
     </statements>
-    <statements xsi:type="rest_tester:VarDeclaration"/>
   </testCases>
 </rest_tester:Program>

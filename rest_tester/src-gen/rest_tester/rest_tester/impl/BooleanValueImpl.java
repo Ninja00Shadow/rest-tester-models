@@ -33,7 +33,7 @@ public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean LITERAL_EDEFAULT = false;
+	protected static final boolean LITERAL_EDEFAULT = true;
 
 	/**
 	 * The cached value of the '{@link #isLiteral() <em>Literal</em>}' attribute.

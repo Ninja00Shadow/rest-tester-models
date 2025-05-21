@@ -32,7 +32,7 @@ public interface TestCase extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getTestCase_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

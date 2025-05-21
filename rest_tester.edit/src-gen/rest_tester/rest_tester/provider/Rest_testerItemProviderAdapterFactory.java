@@ -464,26 +464,26 @@ public class Rest_testerItemProviderAdapterFactory extends Rest_testerAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link rest_tester.rest_tester.PathValue} instances.
+	 * This keeps track of the one adapter used for all {@link rest_tester.rest_tester.VarAccess} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PathValueItemProvider pathValueItemProvider;
+	protected VarAccessItemProvider varAccessItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link rest_tester.rest_tester.PathValue}.
+	 * This creates an adapter for a {@link rest_tester.rest_tester.VarAccess}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createPathValueAdapter() {
-		if (pathValueItemProvider == null) {
-			pathValueItemProvider = new PathValueItemProvider(this);
+	public Adapter createVarAccessAdapter() {
+		if (varAccessItemProvider == null) {
+			varAccessItemProvider = new VarAccessItemProvider(this);
 		}
 
-		return pathValueItemProvider;
+		return varAccessItemProvider;
 	}
 
 	/**
@@ -648,8 +648,8 @@ public class Rest_testerItemProviderAdapterFactory extends Rest_testerAdapterFac
 			pairItemProvider.dispose();
 		if (arrayValueItemProvider != null)
 			arrayValueItemProvider.dispose();
-		if (pathValueItemProvider != null)
-			pathValueItemProvider.dispose();
+		if (varAccessItemProvider != null)
+			varAccessItemProvider.dispose();
 		if (selectorItemProvider != null)
 			selectorItemProvider.dispose();
 	}

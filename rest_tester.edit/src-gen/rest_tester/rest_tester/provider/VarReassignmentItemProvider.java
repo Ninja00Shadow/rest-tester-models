@@ -181,7 +181,7 @@ public class VarReassignmentItemProvider extends StatementItemProvider {
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.VAR_REASSIGNMENT__VALUE,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 }

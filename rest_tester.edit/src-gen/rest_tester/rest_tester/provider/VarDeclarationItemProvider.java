@@ -181,7 +181,7 @@ public class VarDeclarationItemProvider extends StatementItemProvider {
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.VAR_DECLARATION__VALUE,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 }

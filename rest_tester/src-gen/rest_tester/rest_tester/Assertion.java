@@ -26,7 +26,7 @@ public interface Assertion extends Statement {
 	 * @return the value of the '<em>Expr</em>' containment reference.
 	 * @see #setExpr(BoolExpr)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getAssertion_Expr()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	BoolExpr getExpr();

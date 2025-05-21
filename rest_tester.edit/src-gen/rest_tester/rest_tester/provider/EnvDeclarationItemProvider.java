@@ -190,7 +190,7 @@ public class EnvDeclarationItemProvider extends ItemProviderAdapter implements I
 				Rest_testerFactory.eINSTANCE.createArrayValue()));
 
 		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.ENV_DECLARATION__VALUE,
-				Rest_testerFactory.eINSTANCE.createPathValue()));
+				Rest_testerFactory.eINSTANCE.createVarAccess()));
 	}
 
 	/**

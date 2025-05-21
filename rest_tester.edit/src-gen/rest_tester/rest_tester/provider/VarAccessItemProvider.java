@@ -15,24 +15,24 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import rest_tester.rest_tester.PathValue;
 import rest_tester.rest_tester.Rest_testerFactory;
 import rest_tester.rest_tester.Rest_testerPackage;
+import rest_tester.rest_tester.VarAccess;
 
 /**
- * This is the item provider adapter for a {@link rest_tester.rest_tester.PathValue} object.
+ * This is the item provider adapter for a {@link rest_tester.rest_tester.VarAccess} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PathValueItemProvider extends ValueItemProvider {
+public class VarAccessItemProvider extends ValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PathValueItemProvider(AdapterFactory adapterFactory) {
+	public VarAccessItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -47,24 +47,24 @@ public class PathValueItemProvider extends ValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRootPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Root feature.
+	 * This adds a property descriptor for the Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRootPropertyDescriptor(Object object) {
+	protected void addNamePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_PathValue_root_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_PathValue_root_feature",
-								"_UI_PathValue_type"),
-						Rest_testerPackage.Literals.PATH_VALUE__ROOT, true, false, false,
+						getResourceLocator(), getString("_UI_VarAccess_name_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_VarAccess_name_feature",
+								"_UI_VarAccess_type"),
+						Rest_testerPackage.Literals.VAR_ACCESS__NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -80,7 +80,7 @@ public class PathValueItemProvider extends ValueItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(Rest_testerPackage.Literals.PATH_VALUE__SELECTORS);
+			childrenFeatures.add(Rest_testerPackage.Literals.VAR_ACCESS__SELECTORS);
 		}
 		return childrenFeatures;
 	}
@@ -99,14 +99,14 @@ public class PathValueItemProvider extends ValueItemProvider {
 	}
 
 	/**
-	 * This returns PathValue.gif.
+	 * This returns VarAccess.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PathValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VarAccess"));
 	}
 
 	/**
@@ -127,9 +127,9 @@ public class PathValueItemProvider extends ValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PathValue) object).getRoot();
-		return label == null || label.length() == 0 ? getString("_UI_PathValue_type")
-				: getString("_UI_PathValue_type") + " " + label;
+		String label = ((VarAccess) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_VarAccess_type")
+				: getString("_UI_VarAccess_type") + " " + label;
 	}
 
 	/**
@@ -143,11 +143,11 @@ public class PathValueItemProvider extends ValueItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PathValue.class)) {
-		case Rest_testerPackage.PATH_VALUE__ROOT:
+		switch (notification.getFeatureID(VarAccess.class)) {
+		case Rest_testerPackage.VAR_ACCESS__NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
-		case Rest_testerPackage.PATH_VALUE__SELECTORS:
+		case Rest_testerPackage.VAR_ACCESS__SELECTORS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -165,7 +165,7 @@ public class PathValueItemProvider extends ValueItemProvider {
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.PATH_VALUE__SELECTORS,
+		newChildDescriptors.add(createChildParameter(Rest_testerPackage.Literals.VAR_ACCESS__SELECTORS,
 				Rest_testerFactory.eINSTANCE.createSelector()));
 	}
 

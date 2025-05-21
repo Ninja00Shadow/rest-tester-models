@@ -30,7 +30,7 @@ public interface Request extends Statement {
 	 * @see rest_tester.rest_tester.HttpMethod
 	 * @see #setMethod(HttpMethod)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getRequest_Method()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	HttpMethod getMethod();
@@ -53,7 +53,7 @@ public interface Request extends Statement {
 	 * @return the value of the '<em>Endpoint</em>' attribute.
 	 * @see #setEndpoint(String)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getRequest_Endpoint()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getEndpoint();
@@ -73,12 +73,12 @@ public interface Request extends Statement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Config</em>' containment reference.
-	 * @see #setConfig(Value)
+	 * @see #setConfig(ObjectValue)
 	 * @see rest_tester.rest_tester.Rest_testerPackage#getRequest_Config()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Value getConfig();
+	ObjectValue getConfig();
 
 	/**
 	 * Sets the value of the '{@link rest_tester.rest_tester.Request#getConfig <em>Config</em>}' containment reference.
@@ -88,6 +88,6 @@ public interface Request extends Statement {
 	 * @see #getConfig()
 	 * @generated
 	 */
-	void setConfig(Value value);
+	void setConfig(ObjectValue value);
 
 } // Request
