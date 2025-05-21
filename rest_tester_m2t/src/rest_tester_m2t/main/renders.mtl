@@ -5,55 +5,51 @@
 [template public render(b : BoolExpr)][/template]
 [template public render(s : Statement)][/template]
 
-[template public renderOptions(opt : Option)]
-	[for (o : Option | Sequence{opt}) separator(', ')]
-		[o.key/] : [o.value.render()/]
-	[/for]
+[template public renderOptions(opts : Collection(Option))]
+[for (o : Option | opts) separator(', ')][o.key/]: [o.value.render()/][/for]
 [/template]
 
 [template public render(req : Request) overrides]
-	[req.method.toString()/] "[req.endpoint/]" {
-		[if (req.config <> null)]
-			[req.config.render()/] 
-		[/if]
-	}
+[req.method.toString()/] "[req.endpoint/]" [if (req.config <> null)]
+[req.config.render()/] 
+[/if]
 [/template]
 
 [template public render(vd : VarDeclaration) overrides]
-	var [vd.name/] = [vd.value.render()/]
+var [vd.name/] = [vd.value.render()/]
 [/template]
 
 [template public render(vr : VarReassignment) overrides]
-	[vr.name/] = [vr.value.render()/]
+[vr.name/] = [vr.value.render()/]
 [/template]
 
 [template public render(a : Assertion) overrides]
-	expect [a.expr.render()/]
+expect [a.expr.render()/]
 [/template]
 
 [template public render(be : BinaryLogicalExpr)]
-	[be.left.render()/] [renderLogOp(be.op)/] [be.right.render()/]
+[be.left.render()/] [renderLogOp(be.op)/] [be.right.render()/]
 [/template]
 
 [template public render(ne : NotExpr)]
-	! [ne.expr.render()/]
+![ne.expr.render()/]
 [/template]
 
 [template public render(ce : ComparisonExpr)]
-	[ce.left.render()/] [renderCompOp(ce.op)/] [ce.right.render()/]
+[ce.left.render()/] [renderCompOp(ce.op)/] [ce.right.render()/]
 [/template]
 
 [comment] === Value === [/comment]
-[template public render(s : StringValue) overrides] "[s.literal/]" [/template]
+[template public render(s : StringValue) overrides]"[s.literal/]"[/template]
 
-[template public render(n : NumberValue) overrides] [n.literal/] [/template]
+[template public render(n : NumberValue) overrides][n.literal/][/template]
 
-[template public render(b : BooleanValue) overrides] [if b.literal]true[else]false[/if] [/template]
+[template public render(b : BooleanValue) overrides][if b.literal]true[else]false[/if][/template]
 
 [template public render(o : ObjectValue) overrides]
 {
-[for (p : Pair | o.entries) separator(',\n')]
-	"[p.key/]" : [p.value.render()/]
+[for (p : Pair | o.entries)]
+	"[p.key/]": [p.value.render()/][let idx : Integer = o.entries->indexOf(p)][if idx <> o.entries->size()],[/if][/let]
 [/for]
 }
 [/template]
@@ -67,11 +63,11 @@
 [/template]
 
 [template public render(v : VarAccess) overrides]
-	[v.name/][for (sel : Selector | v.selectors)][sel.render()/][/for]
+[v.name/][for (sel : Selector | v.selectors)][sel.render()/][/for]
 [/template]
 
 [template public render(sel : Selector)]
-	['['/][if sel.propertyName <> null]'[sel.propertyName/]'[else][sel.index/][/if][']' /]
+['['/][if sel.propertyName <> null]"[sel.propertyName/]"[else][sel.index/][/if][']' /]
 [/template]
 
 [query public renderCompOp(op : ComparisonOp) : String =

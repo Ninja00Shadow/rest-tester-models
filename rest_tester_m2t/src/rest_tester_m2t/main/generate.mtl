@@ -8,17 +8,16 @@
 [file ('program.rest', false, 'UTF-8')]
 [comment]  ----- ENV ----- [/comment]
 [for (env : EnvDeclaration | aProgram.envDeclarations)]
-[env.name/] = [env.value.render()/]
+ENV [env.name/] = [env.value.render()/]
 [/for]
 
 [comment]  ----- TEST CASES ----- [/comment]
 [for (tc : TestCase | aProgram.testCases)]
-test "[tc.name/]" [if (tc.options->notEmpty())]options { [tc.options.renderOptions()/] }[/if] {
-	[for (st : Statement | tc.statements)]
-		[st.render()/]
-	[/for]
+test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.options)/] }[/if] {
+[for (st : Statement | tc.statements)]
+	[st.render()/]
+[/for]
 }
 [/for]
-
 [/file]
 [/template]

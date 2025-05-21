@@ -1,24 +1,18 @@
-PASSWORD =  "pass" 
+ENV PASSWORD = "pass"
 
-test "" options { 		repeat :  3.0
-		timeout :  5000.0
- } {
-			var username =  "admin" 
-			POST "/api/login" {
-					{
-						"headers" : {
-							"Content-Type" :  "application/json" 
-						}
-					,
-						"body" : {
-							"username" :  "${username}" 
-						,
-							"password" :  "@{PASSWORD}" 
-						}
-					} 
-			}
-			expect 		status ==  200.0
-			expect 		body	['success'] ==  true
-			expect 		body	['token'] !=  "" 
+test "User login" options { repeat: 3.0, timeout: 5000.0 } {
+	var username = "admin"
+	POST "/api/login" {
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"body": {
+			"username": "${username}",
+			"password": "@{PASSWORD}"
+		}
+	} 
+	
+	expect status == 200.0
+	expect body["success"] == true
+	expect body["token"] != ""
 }
-

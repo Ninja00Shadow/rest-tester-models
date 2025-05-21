@@ -3,7 +3,7 @@
   <envDeclarations name="PASSWORD">
     <value xsi:type="rest_tester:StringValue" literal="pass"/>
   </envDeclarations>
-  <testCases>
+  <testCases name="User login">
     <options key="repeat">
       <value xsi:type="rest_tester:NumberValue" literal="3.0"/>
     </options>
