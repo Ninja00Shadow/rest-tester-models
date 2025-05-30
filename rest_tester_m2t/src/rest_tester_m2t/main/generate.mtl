@@ -6,18 +6,65 @@
 [template public genRestTesterModel2RestTesterCode(aProgram : Program)]
 [comment @main/]
 [file (aProgram.name + '.rt', false, 'UTF-8')]
+
 [comment]  ----- ENV ----- [/comment]
 [for (env : EnvDeclaration | aProgram.envDeclarations)]
-ENV [env.name/] = [env.value.render()/]
+  [if (env.name.oclIsUndefined() or env.value.oclIsUndefined())]
+    [comment] Incomplete ENV declaration: name or value missing. [/comment]
+  [/if]
+
+  [if (aProgram.envDeclarations->select(e | e.name = env.name)->size() > 1)]
+    [comment] Duplicate ENV declaration: [env.name/]. [/comment]
+  [/if]
+
+  ENV [env.name/] = [env.value.render()/]
 [/for]
 
 [comment]  ----- TEST CASES ----- [/comment]
 [for (tc : TestCase | aProgram.testCases)]
-test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.options)/] }[/if] {
-[for (st : Statement | tc.statements)]
-	[st.render()/]
-[/for]
-}
+  [if (not tc.name.matches('[a-zA-Z_][a-zA-Z0-9_]*'))]
+    [comment] Invalid test case name: [tc.name/]. Must match [a-zA-Z_][a-zA-Z0-9_]* [/comment]
+  [/if]
+
+  [if (tc.statements->isEmpty())]
+    [comment] Test case "[tc.name/]" is empty. [/comment]
+  [/if]
+
+
+
+  test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.options)/] }[/if] {
+  
+  [for (opt : Option | tc.options)]
+    [if (not Sequence{'timeout', 'repeat'}->includes(opt.key))]
+      [comment] Unknown option key: [opt.key/]. [/comment]
+    [/if]
+
+    [if (tc.options->select(o | o.key = opt.key)->size() > 1)]
+      [comment] Duplicate option "[opt.key/]" in test case "[tc.name/]". [/comment]
+    [/if]
+
+  [/for]
+
+  [for (st : Statement | tc.statements)]
+    [if (st.oclIsTypeOf(Request))]
+      [let req : Request = st.oclAsType(Request)]
+        [if (req.method.oclIsUndefined() or req.endpoint.oclIsUndefined())]
+          [comment] Incomplete request: missing method or endpoint. [/comment]
+        [/if]
+
+		[if (req.method.oclIsUndefined() or 
+	     not Sequence{'GET', 'POST', 'PUT', 'DELETE'}->includes(req.method))]
+	  	[comment] Unsupported or missing HTTP method: [req.method/]. [/comment]
+		[/if]
+
+      [/let]
+    [/if]
+
+    [st.render()/]
+  [/for]
+
+  }
+
 [/for]
 [/file]
 [/template]
