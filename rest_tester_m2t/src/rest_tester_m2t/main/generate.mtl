@@ -1,70 +1,66 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.example.org/rest_tester')]
-
-[import rest_tester_m2t::main::renders /] 
-
+[import rest_tester_m2t::main::renders /]
 [template public genRestTesterModel2RestTesterCode(aProgram : Program)]
 [comment @main/]
 [file (aProgram.name + '.rt', false, 'UTF-8')]
-
-[comment]  ----- ENV ----- [/comment]
+[comment] ----- ENV ----- [/comment]
 [for (env : EnvDeclaration | aProgram.envDeclarations)]
-  [if (env.name.oclIsUndefined() or env.value.oclIsUndefined())]
-    [comment] Incomplete ENV declaration: name or value missing. [/comment]
-  [/if]
-
-  [if (aProgram.envDeclarations->select(e | e.name = env.name)->size() > 1)]
-    [comment] Duplicate ENV declaration: [env.name/]. [/comment]
-  [/if]
-
-  ENV [env.name/] = [env.value.render()/]
+[if ((env.name.oclIsUndefined() or env.name.trim() = '') and (env.value.oclIsUndefined() or env.value.toString().trim() = ''))]
+//Missing name and value while declaring ENV.
+[elseif (env.name.oclIsUndefined() or env.name.trim() = '')]
+//Missing name while declaring ENV.
+[elseif (env.value.oclIsUndefined())]
+//Missing value while declaring ENV.
+[else]
+[if (aProgram.envDeclarations->select(e | not (e.name.oclIsUndefined() or e.name.trim() = '') and e.name = env.name)->size() > 1)]
+//Duplicate ENV declaration: [env.name/].
+[/if]
+ENV [env.name/] = [env.value.render()/]
+[/if]
 [/for]
 
-[comment]  ----- TEST CASES ----- [/comment]
+[comment] ----- TEST CASES ----- [/comment]
 [for (tc : TestCase | aProgram.testCases)]
-  [if (not tc.name.matches('[a-zA-Z_][a-zA-Z0-9_]*'))]
-    [comment] Invalid test case name: [tc.name/]. Must match [a-zA-Z_][a-zA-Z0-9_]* [/comment]
-  [/if]
-
-  [if (tc.statements->isEmpty())]
-    [comment] Test case "[tc.name/]" is empty. [/comment]
-  [/if]
-
-
-
-  test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.options)/] }[/if] {
-  
-  [for (opt : Option | tc.options)]
-    [if (not Sequence{'timeout', 'repeat'}->includes(opt.key))]
-      [comment] Unknown option key: [opt.key/]. [/comment]
-    [/if]
-
-    [if (tc.options->select(o | o.key = opt.key)->size() > 1)]
-      [comment] Duplicate option "[opt.key/]" in test case "[tc.name/]". [/comment]
-    [/if]
-
-  [/for]
-
-  [for (st : Statement | tc.statements)]
-    [if (st.oclIsTypeOf(Request))]
-      [let req : Request = st.oclAsType(Request)]
-        [if (req.method.oclIsUndefined() or req.endpoint.oclIsUndefined())]
-          [comment] Incomplete request: missing method or endpoint. [/comment]
-        [/if]
-
-		[if (req.method.oclIsUndefined() or 
-	     not Sequence{'GET', 'POST', 'PUT', 'DELETE'}->includes(req.method))]
-	  	[comment] Unsupported or missing HTTP method: [req.method/]. [/comment]
-		[/if]
-
-      [/let]
-    [/if]
-
-    [st.render()/]
-  [/for]
-
-  }
-
+[if (tc.oclIsUndefined())]
+//Encountered null test case, skipping.
+[else]
+[if (not tc.name.matches('^[a-zA-Z_][a-zA-Z0-9_ ]*$'))]
+//Invalid test case name: [tc.name/].
+[/if]
+[if (tc.statements->isEmpty())]
+//Test case "[tc.name/]" is empty.
+[/if]
+test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.options)/] }[/if] {
+[for (opt : Option | tc.options)]
+[if (not Sequence{'timeout', 'repeat'}->includes(opt.key))]
+//Unknown option key: [opt.key/].
+[/if]
+[if (tc.options->select(o | o.key = opt.key)->size() > 1)]
+//Duplicate option "[opt.key/]" in test case "[tc.name/]".
+[/if]
+[/for]
+[for (st : Statement | tc.statements)]
+[if (st.oclIsUndefined())]
+//Encountered null statement, skipping.
+[else]
+[if (st.oclIsTypeOf(Request))]
+[let req : Request = st.oclAsType(Request)]
+[if (req.method.oclIsUndefined() or req.endpoint.oclIsUndefined())]
+//Incomplete request: missing method or endpoint.
+[/if]
+[let method : String = req.method.toString().trim().toUpper()]
+[if (method.oclIsUndefined() or not Sequence{'GET', 'POST', 'PUT', 'DELETE'}->includes(method))]
+//Unsupported or missing HTTP method: [method/].
+[/if]
+[/let]
+[/let]
+[/if]
+	[st.render()/]
+[/if]
+[/for]
+}
+[/if]
 [/for]
 [/file]
 [/template]
