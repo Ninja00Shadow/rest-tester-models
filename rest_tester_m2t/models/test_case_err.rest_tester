@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest_tester:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rest_tester="http://www.example.org/rest_tester" name="test_case_err">
+  <envDeclarations name="PASSWORD">
+    <value xsi:type="rest_tester:StringValue" literal="pass"/>
+  </envDeclarations>
+  <envDeclarations name="">
+    <value xsi:type="rest_tester:StringValue" literal="pass"/>
+  </envDeclarations>
+  <envDeclarations name="PASS_NO_VALUE"/>
+  <testCases name="User login">
+    <options key="repeat">
+      <value xsi:type="rest_tester:NumberValue" literal="3.0"/>
+    </options>
+    <options key="timeout">
+      <value xsi:type="rest_tester:NumberValue" literal="5000.0"/>
+    </options>
+    <statements xsi:type="rest_tester:VarDeclaration" name="username">
+      <value xsi:type="rest_tester:StringValue" literal="admin"/>
+    </statements>
+    <statements xsi:type="rest_tester:Request" method="POST" endpoint="/api/login">
+      <config>
+        <entries key="headers">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="Content-Type">
+              <value xsi:type="rest_tester:StringValue" literal="application/json"/>
+            </entries>
+          </value>
+        </entries>
+        <entries key="body">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="username">
+              <value xsi:type="rest_tester:StringValue" literal="${username}"/>
+            </entries>
+            <entries key="password">
+              <value xsi:type="rest_tester:StringValue" literal="@{PASSWORD}"/>
+            </entries>
+          </value>
+        </entries>
+      </config>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="status"/>
+        <right xsi:type="rest_tester:NumberValue" literal="200.0"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="body">
+          <selectors propertyName="success"/>
+        </left>
+        <right xsi:type="rest_tester:BooleanValue"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr" op="NEQ">
+        <left xsi:type="rest_tester:VarAccess" name="body">
+          <selectors propertyName="token"/>
+        </left>
+        <right xsi:type="rest_tester:StringValue" literal=""/>
+      </expr>
+    </statements>
+  </testCases>
+</rest_tester:Program>
