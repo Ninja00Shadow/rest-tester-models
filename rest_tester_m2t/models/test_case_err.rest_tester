@@ -7,6 +7,17 @@
     <value xsi:type="rest_tester:StringValue" literal="pass"/>
   </envDeclarations>
   <envDeclarations name="PASS_NO_VALUE"/>
+  <testCases/>
+  <testCases name="&quot;Wrong format&quot;"/>
+  <testCases name="Wrong options">
+    <options key="test">
+      <value xsi:type="rest_tester:ArrayValue">
+        <elements xsi:type="rest_tester:StringValue" literal="aaa"/>
+        <elements xsi:type="rest_tester:StringValue" literal="bbb"/>
+      </value>
+    </options>
+    <options key="test"/>
+  </testCases>
   <testCases name="User login">
     <options key="repeat">
       <value xsi:type="rest_tester:NumberValue" literal="3.0"/>
@@ -52,13 +63,6 @@
         <right xsi:type="rest_tester:BooleanValue"/>
       </expr>
     </statements>
-    <statements xsi:type="rest_tester:Assertion">
-      <expr xsi:type="rest_tester:ComparisonExpr" op="NEQ">
-        <left xsi:type="rest_tester:VarAccess" name="body">
-          <selectors propertyName="token"/>
-        </left>
-        <right xsi:type="rest_tester:StringValue" literal=""/>
-      </expr>
-    </statements>
+    <statements xsi:type="rest_tester:Assertion"/>
   </testCases>
 </rest_tester:Program>
