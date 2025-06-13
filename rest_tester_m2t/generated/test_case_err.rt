@@ -17,6 +17,7 @@ test ""Wrong format""  {
 //Incorrect type: ArrayValue for key: timeout
 //Unknown option key: test.
 //Duplicate option "test" in test case "Wrong options".
+//Incorrect type: invalid for key: test
 test "Wrong options"  {
 }
 test "User login" options { repeat: 3.0, timeout: 5000.0 } {

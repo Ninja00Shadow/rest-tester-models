@@ -40,7 +40,7 @@ test "[tc.name/]" [if (tc.options->notEmpty())]options { [renderOptions(tc.optio
 			[if (tc.options->select(o | o.key = opt.key)->size() > 1)]
 //Duplicate option "[opt.key/]" in test case "[tc.name/]".
 			[/if]
-			[if (not opt.value.oclIsKindOf(NumberValue))]
+			[if opt.value.oclIsUndefined() or not (opt.value.oclIsKindOf(rest_tester::NumberValue))]
 //Incorrect type: [opt.value.eClass().name /] for key: [opt.key /]
 			[/if]
 		[/for]
