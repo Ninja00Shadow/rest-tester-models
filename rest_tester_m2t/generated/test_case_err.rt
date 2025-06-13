@@ -2,15 +2,22 @@ ENV PASSWORD = "pass"
 //Missing name while declaring ENV.
 //Missing value while declaring ENV.
 
+//Missing test case name
 //Test case "" is empty.
 test ""  {
 }
-//Invalid test case name: "Wrong format".
+//Invalid test case name: ""Wrong format"".
 //Test case ""Wrong format"" is empty.
 test ""Wrong format""  {
 }
 //Test case "Wrong options" is empty.
-test "Wrong options" options { test: ["aaa", "bbb"], test:  } {
+//Unknown option key: test.
+//Duplicate option "test" in test case "Wrong options".
+//Incorrect type: ArrayValue for key: test
+//Incorrect type: ArrayValue for key: timeout
+//Unknown option key: test.
+//Duplicate option "test" in test case "Wrong options".
+test "Wrong options"  {
 }
 test "User login" options { repeat: 3.0, timeout: 5000.0 } {
 	var username = "admin"

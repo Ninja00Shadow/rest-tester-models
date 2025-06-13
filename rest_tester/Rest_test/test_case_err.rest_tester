@@ -13,8 +13,10 @@
     <options key="test">
       <value xsi:type="rest_tester:ArrayValue">
         <elements xsi:type="rest_tester:StringValue" literal="aaa"/>
-        <elements xsi:type="rest_tester:StringValue" literal="bbb"/>
       </value>
+    </options>
+    <options key="timeout">
+      <value xsi:type="rest_tester:ArrayValue"/>
     </options>
     <options key="test"/>
   </testCases>
