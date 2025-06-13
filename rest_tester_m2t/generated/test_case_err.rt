@@ -3,26 +3,28 @@ ENV PASSWORD = "pass"
 //Missing value while declaring ENV.
 
 //Missing test case name
-//Test case "" is empty.
-test ""  {
-}
+
 //Invalid test case name: ""Wrong format"".
-//Test case ""Wrong format"" is empty.
-test ""Wrong format""  {
-}
+
 //Test case "Wrong options" is empty.
 //Unknown option key: test.
 //Duplicate option "test" in test case "Wrong options".
-//Incorrect type: ArrayValue for key: test
-//Incorrect type: ArrayValue for key: timeout
+//Incorrect type: ArrayValue for option "test"
+//Incorrect type: ArrayValue for option "timeout"
 //Unknown option key: test.
 //Duplicate option "test" in test case "Wrong options".
-//Incorrect type: invalid for key: test
-test "Wrong options"  {
+//Missing value for option "test"
+test "Wrong options" {
 }
+
 test "User login" options { repeat: 3.0, timeout: 5000.0 } {
 	var username = "admin"
-	POST "/api/login" {
+	// Missing var name
+	// Missing value for var "vvv"
+	username = "notadmin"
+	// Missing var name
+	// Missing value for var "rrr"
+	POST "/api/login"{
 		"headers": {
 			"Content-Type": "application/json"
 		},
@@ -30,9 +32,24 @@ test "User login" options { repeat: 3.0, timeout: 5000.0 } {
 			"username": "${username}",
 			"password": "@{PASSWORD}"
 		}
-	} 
+	}
+	
+	// Incomplete request: missing method or endpoint.
+	//	GET ""
 	
 	expect status == 200.0
 	expect body["success"] == true
-	expect 
+	// Missing assert body
+	// Missing left or right part: expect ==
+	// Missing left or right part: expect &&
+	// Missing expression
+	var incorrentObj = {
+		"correct": "correct",
+		// Missing key
+		// Missing value
+		"deeper": {
+			// Missing value
+		}
+	}
 }
+

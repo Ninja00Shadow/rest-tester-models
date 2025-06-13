@@ -30,6 +30,13 @@
     <statements xsi:type="rest_tester:VarDeclaration" name="username">
       <value xsi:type="rest_tester:StringValue" literal="admin"/>
     </statements>
+    <statements xsi:type="rest_tester:VarDeclaration"/>
+    <statements xsi:type="rest_tester:VarDeclaration" name="vvv"/>
+    <statements xsi:type="rest_tester:VarReassignment" name="username">
+      <value xsi:type="rest_tester:StringValue" literal="notadmin"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarReassignment"/>
+    <statements xsi:type="rest_tester:VarReassignment" name="rrr"/>
     <statements xsi:type="rest_tester:Request" method="POST" endpoint="/api/login">
       <config>
         <entries key="headers">
@@ -51,6 +58,7 @@
         </entries>
       </config>
     </statements>
+    <statements xsi:type="rest_tester:Request"/>
     <statements xsi:type="rest_tester:Assertion">
       <expr xsi:type="rest_tester:ComparisonExpr">
         <left xsi:type="rest_tester:VarAccess" name="status"/>
@@ -66,5 +74,30 @@
       </expr>
     </statements>
     <statements xsi:type="rest_tester:Assertion"/>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:BinaryLogicalExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:NotExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="incorrentObj">
+      <value xsi:type="rest_tester:ObjectValue">
+        <entries key="correct">
+          <value xsi:type="rest_tester:StringValue" literal="correct"/>
+        </entries>
+        <entries>
+          <value xsi:type="rest_tester:StringValue" literal="no key"/>
+        </entries>
+        <entries key="no value"/>
+        <entries key="deeper">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="second level"/>
+          </value>
+        </entries>
+      </value>
+    </statements>
   </testCases>
 </rest_tester:Program>
