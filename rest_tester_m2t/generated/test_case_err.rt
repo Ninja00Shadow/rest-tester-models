@@ -1,0 +1,55 @@
+ENV PASSWORD = "pass"
+//Missing name while declaring ENV.
+//Missing value while declaring ENV.
+
+//Missing test case name
+
+//Invalid test case name: ""Wrong format"".
+
+//Test case "Wrong options" is empty.
+//Unknown option key: test.
+//Duplicate option "test" in test case "Wrong options".
+//Incorrect type: ArrayValue for option "test"
+//Incorrect type: ArrayValue for option "timeout"
+//Unknown option key: test.
+//Duplicate option "test" in test case "Wrong options".
+//Missing value for option "test"
+test "Wrong options" {
+}
+
+test "User login" options { repeat: 3.0, timeout: 5000.0 } {
+	var username = "admin"
+	// Missing var name
+	// Missing value for var "vvv"
+	username = "notadmin"
+	// Missing var name
+	// Missing value for var "rrr"
+	POST "/api/login"{
+		"headers": {
+			"Content-Type": "application/json"
+		},
+		"body": {
+			"username": "${username}",
+			"password": "@{PASSWORD}"
+		}
+	}
+	
+	// Incomplete request: missing method or endpoint.
+	//	GET ""
+	
+	expect status == 200.0
+	expect body["success"] == true
+	// Missing assert body
+	// Missing left or right part: expect ==
+	// Missing left or right part: expect &&
+	// Missing expression
+	var incorrentObj = {
+		"correct": "correct",
+		// Missing key
+		// Missing value
+		"deeper": {
+			// Missing value
+		}
+	}
+}
+

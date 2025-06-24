@@ -9,34 +9,63 @@
 [for (o : Option | opts) separator(', ')][o.key/]: [o.value.render()/][/for]
 [/template]
 
-[template public render(req : Request) overrides]
+[comment][template public render(req : Request) overrides]
+[if (req.method.oclIsUndefined() or req.endpoint.oclIsUndefined())]
+//Incomplete request: missing method or endpoint.
+[/if]
+[if (req.method.oclIsUndefined() or not Sequence{'GET', 'POST', 'PUT', 'DELETE'}->includes(req.method))]
+//Unsupported or missing HTTP method: [req.method/].
+[/if]
 [req.method.toString()/] "[req.endpoint/]" [if (req.config <> null)]
 [req.config.render()/] 
 [/if]
+[/template][/comment]
+
+[template public render(req : Request) overrides]
+	[let missing : Boolean = req.method.oclIsUndefined() or req.endpoint.oclIsUndefined()]
+		[let unsupported : Boolean = req.method.oclIsUndefined() or not Sequence{'GET','POST','PUT','DELETE'}->includes(req.method.toString())]
+    		[if missing]
+// Incomplete request: missing method or endpoint.
+    		[/if]
+    		[if unsupported]
+// Unsupported or missing HTTP method: [if req.method.oclIsUndefined()]null[else][req.method/][/if].
+    		[/if]
+    		[if not (missing or unsupported)]
+[req.method.toString()/] "[req.endpoint/]"[if req.config <> null][req.config.render()/][/if]
+			[else]
+//	[req.method.toString()/] "[req.endpoint/]"
+    		[/if]
+		[/let]
+	[/let]
 [/template]
 
 [template public render(vd : VarDeclaration) overrides]
-var [vd.name/] = [vd.value.render()/]
+[if vd.name.oclIsUndefined()]// Missing var name[elseif vd.value.oclIsUndefined()]// Missing value for var "[vd.name/]"[else]var [vd.name/] = [vd.value.render()/][/if]
 [/template]
 
 [template public render(vr : VarReassignment) overrides]
-[vr.name/] = [vr.value.render()/]
+[if vr.name.oclIsUndefined()]// Missing var name[elseif vr.value.oclIsUndefined()]// Missing value for var "[vr.name/]"[else][vr.name/] = [vr.value.render()/][/if]
 [/template]
 
 [template public render(a : Assertion) overrides]
-expect [a.expr.render()/]
+[let exprStr : String = if a.expr.oclIsUndefined() then '// Missing assert body' else a.expr.render() endif]
+[if isComment(exprStr)][exprStr/][else]expect [exprStr/][/if][/let]
 [/template]
 
 [template public render(be : BinaryLogicalExpr)]
-([be.left.render()/]) [renderLogOp(be.op)/] ([be.right.render()/])
+[if be.left.oclIsUndefined() or be.right.oclIsUndefined()]// Missing left or right part: expect [renderLogOp(be.op)/][elseif be.op.oclIsUndefined()]// Missing operator: expect ([be.left.render()/]) ([be.right.render()/])[else]
+([be.left.render()/]) [renderLogOp(be.op)/] ([be.right.render()/])[/if]
 [/template]
 
 [template public render(ne : NotExpr)]
-![ne.expr.render()/]
+[if ne.expr.oclIsUndefined()]
+// Missing expression[else]
+![ne.expr.render()/][/if]
 [/template]
 
 [template public render(ce : ComparisonExpr)]
-[ce.left.render()/] [renderCompOp(ce.op)/] [ce.right.render()/]
+[if ce.left.oclIsUndefined() or ce.right.oclIsUndefined()]// Missing left or right part: expect [renderCompOp(ce.op)/][elseif ce.op.oclIsUndefined()]// Missing operator: expect [ce.left.render()/] [ce.right.render()/][else]
+[ce.left.render()/] [renderCompOp(ce.op)/] [ce.right.render()/][/if]
 [/template]
 
 [comment] === Value === [/comment]
@@ -49,7 +78,13 @@ expect [a.expr.render()/]
 [template public render(o : ObjectValue) overrides]
 {
 [for (p : Pair | o.entries)]
+	[if p.key.oclIsUndefined()]
+	// Missing key
+	[elseif p.value.oclIsUndefined()]
+	// Missing value
+	[else]
 	"[p.key/]": [p.value.render()/][let idx : Integer = o.entries->indexOf(p)][if idx <> o.entries->size()],[/if][/let]
+	[/if]
 [/for]
 }
 [/template]
@@ -77,4 +112,8 @@ expect [a.expr.render()/]
 
 [query public renderLogOp(op : LogicalOp) : String =
 	if self = LogicalOp::AND then '&&' else '||' endif
+/]
+
+[query public isComment(str : String) : Boolean =
+    str.startsWith('//')
 /]

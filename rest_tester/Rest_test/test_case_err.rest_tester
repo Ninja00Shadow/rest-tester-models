@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rest_tester:Program xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rest_tester="http://www.example.org/rest_tester" name="test_case_err">
+  <envDeclarations name="PASSWORD">
+    <value xsi:type="rest_tester:StringValue" literal="pass"/>
+  </envDeclarations>
+  <envDeclarations name="">
+    <value xsi:type="rest_tester:StringValue" literal="pass"/>
+  </envDeclarations>
+  <envDeclarations name="PASS_NO_VALUE"/>
+  <testCases/>
+  <testCases name="&quot;Wrong format&quot;"/>
+  <testCases name="Wrong options">
+    <options key="test">
+      <value xsi:type="rest_tester:ArrayValue">
+        <elements xsi:type="rest_tester:StringValue" literal="aaa"/>
+      </value>
+    </options>
+    <options key="timeout">
+      <value xsi:type="rest_tester:ArrayValue"/>
+    </options>
+    <options key="test"/>
+  </testCases>
+  <testCases name="User login">
+    <options key="repeat">
+      <value xsi:type="rest_tester:NumberValue" literal="3.0"/>
+    </options>
+    <options key="timeout">
+      <value xsi:type="rest_tester:NumberValue" literal="5000.0"/>
+    </options>
+    <statements xsi:type="rest_tester:VarDeclaration" name="username">
+      <value xsi:type="rest_tester:StringValue" literal="admin"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration"/>
+    <statements xsi:type="rest_tester:VarDeclaration" name="vvv"/>
+    <statements xsi:type="rest_tester:VarReassignment" name="username">
+      <value xsi:type="rest_tester:StringValue" literal="notadmin"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarReassignment"/>
+    <statements xsi:type="rest_tester:VarReassignment" name="rrr"/>
+    <statements xsi:type="rest_tester:Request" method="POST" endpoint="/api/login">
+      <config>
+        <entries key="headers">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="Content-Type">
+              <value xsi:type="rest_tester:StringValue" literal="application/json"/>
+            </entries>
+          </value>
+        </entries>
+        <entries key="body">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="username">
+              <value xsi:type="rest_tester:StringValue" literal="${username}"/>
+            </entries>
+            <entries key="password">
+              <value xsi:type="rest_tester:StringValue" literal="@{PASSWORD}"/>
+            </entries>
+          </value>
+        </entries>
+      </config>
+    </statements>
+    <statements xsi:type="rest_tester:Request"/>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="status"/>
+        <right xsi:type="rest_tester:NumberValue" literal="200.0"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr">
+        <left xsi:type="rest_tester:VarAccess" name="body">
+          <selectors propertyName="success"/>
+        </left>
+        <right xsi:type="rest_tester:BooleanValue"/>
+      </expr>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion"/>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:ComparisonExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:BinaryLogicalExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:Assertion">
+      <expr xsi:type="rest_tester:NotExpr"/>
+    </statements>
+    <statements xsi:type="rest_tester:VarDeclaration" name="incorrentObj">
+      <value xsi:type="rest_tester:ObjectValue">
+        <entries key="correct">
+          <value xsi:type="rest_tester:StringValue" literal="correct"/>
+        </entries>
+        <entries>
+          <value xsi:type="rest_tester:StringValue" literal="no key"/>
+        </entries>
+        <entries key="no value"/>
+        <entries key="deeper">
+          <value xsi:type="rest_tester:ObjectValue">
+            <entries key="second level"/>
+          </value>
+        </entries>
+      </value>
+    </statements>
+  </testCases>
+</rest_tester:Program>
